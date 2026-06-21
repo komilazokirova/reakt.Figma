@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <div>
             <div className='flex items-center justify-between border-b border-gray-300 px-20 py-5'>
-                <h1 className='font-bold text-2xl'>Exclusive</h1>
+                <h1 className='font-bold px-5 text-2xl'>Exclusive</h1>
                 <div className="flex gap-10">
                     <Link to="/">Home</Link>
                     <Link to="/contact">Contact</Link>

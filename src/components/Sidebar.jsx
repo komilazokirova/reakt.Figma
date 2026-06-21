@@ -15,7 +15,7 @@ const categories = [
 
 const Sidebar = () => {
   return (
-    <div className="w-64 border-r p-5">
+    <div className=" border-r p-5 border-gray-300 px-25">
       <ul className="space-y-4">
         {categories.map((item) => (
           <li
@@ -30,5 +30,6 @@ const Sidebar = () => {
     </div>
   );
 };
+
 
 export default Sidebar;
