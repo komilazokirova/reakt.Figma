@@ -5,12 +5,14 @@ import SignUp from "./pages/SignUp";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 import FlashSales from './components/FlashSales';
+import { CartProvider } from "./context/CartContext";
 
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
+     <CartProvider>
       <Header />
       <div className="flex gap-10 items-start"><Sidebar />
       
@@ -23,6 +25,7 @@ function App() {
 
       </div>
       <FlashSales />
+      </CartProvider>
     </>
   );
 }

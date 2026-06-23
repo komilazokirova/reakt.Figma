@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { Star, ArrowLeft, ArrowRight } from "lucide-react";
 import gamepadImg from "../assets/Jostik.svg";
-import keyboardImg from "../assets/Klawyatura.svg";
+import keyboardImg from "../assets/Klavyatura.svg";
 import monitorImg from "../assets/Tv.svg";
-import chairImg from "../assets/Stul.svg";
+import chairImg from "../assets/Stull.svg";
 
 const products = [
   {
@@ -49,13 +49,23 @@ const products = [
   {
   id: 5,
   name: "S-Series Comfort Chair",
-  image: gamepadImg, 
+  image: gamepadImg,
   price: 375,
   oldPrice: 400,
   rating: 4.5,
   reviews: 99,
   showAddToCart: false,
 },
+{
+    id: 6,
+    name: "AK-900 Wired Keyboard",
+    image: keyboardImg,
+    price: 960,
+    oldPrice: 1160,
+    rating: 4,
+    reviews: 75,
+    showAddToCart: true,
+  },
 ];
 
 
