@@ -3,12 +3,14 @@ import Karzinka from "../assets/Karzinka.svg"
 import Sertsa from "../assets/Sertsa.svg";
 import Qidruv from "../assets/Qidruv.svg"
 import { Link } from "react-router-dom";
-
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
+    const { cartCount, wishlistCount } = useCart();
+
     return (
         <div>
-            <div className='flex items-center justify-between border-b border-gray-300 px-20 py-5'>
+           <div className='fixed top-0 left-0 w-full bg-white z-50 flex items-center justify-between border-b border-gray-300 px-20 py-5'>
                 <h1 className='font-bold px-5 text-2xl'>Exclusive</h1>
                 <div className="flex gap-10">
                     <Link to="/">Home</Link>
@@ -29,8 +31,22 @@ const Navbar = () => {
                     />
                 </div>
                 <div className='flex gap-5'>
-                    <img src={Sertsa} alt="Like" />
-                    <img src={Karzinka} alt="Karzinka" />
+                    <div className="relative">
+                        <img src={Sertsa} alt="Like" />
+                        {wishlistCount > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                                {wishlistCount}
+                            </span>
+                        )}
+                    </div>
+                    <div className="relative">
+                        <img src={Karzinka} alt="Karzinka" />
+                        {cartCount > 0 && (
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                                {cartCount}
+                            </span>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>

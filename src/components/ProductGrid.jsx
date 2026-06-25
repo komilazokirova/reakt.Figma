@@ -4,6 +4,7 @@ import gamepadImg from "../assets/Jostik.svg";
 import keyboardImg from "../assets/Klavyatura.svg";
 import monitorImg from "../assets/Tv.svg";
 import chairImg from "../assets/Stull.svg";
+import { useCart } from "../context/CartContext";
 
 const products = [
   {
@@ -14,7 +15,6 @@ const products = [
     oldPrice: 160,
     rating: 5,
     reviews: 88,
-    showAddToCart: false,
   },
   {
     id: 2,
@@ -24,7 +24,6 @@ const products = [
     oldPrice: 1160,
     rating: 4,
     reviews: 75,
-    showAddToCart: true,
   },
   {
     id: 3,
@@ -34,7 +33,6 @@ const products = [
     oldPrice: 400,
     rating: 5,
     reviews: 99,
-    showAddToCart: false,
   },
   {
     id: 4,
@@ -44,19 +42,17 @@ const products = [
     oldPrice: 400,
     rating: 4.5,
     reviews: 99,
-    showAddToCart: false,
   },
   {
-  id: 5,
-  name: "S-Series Comfort Chair",
-  image: gamepadImg,
-  price: 375,
-  oldPrice: 400,
-  rating: 4.5,
-  reviews: 99,
-  showAddToCart: false,
-},
-{
+    id: 5,
+    name: "S-Series Comfort Chair",
+    image: gamepadImg,
+    price: 375,
+    oldPrice: 400,
+    rating: 4.5,
+    reviews: 99,
+  },
+  {
     id: 6,
     name: "AK-900 Wired Keyboard",
     image: keyboardImg,
@@ -64,19 +60,23 @@ const products = [
     oldPrice: 1160,
     rating: 4,
     reviews: 75,
-    showAddToCart: true,
   },
 ];
 
-
-
 const ProductCard = ({ product }) => {
+  const { addToCart } = useCart();
+
   return (
-    <div className="w-64 group mb-10  flex-shrink-0">
-      <div className="relative bg-gray-100 h-56 flex items-center justify-center rounded">
+    <div className="w-64 group mb-10 flex-shrink-0">
+      <div className="relative bg-gray-100 h-56 flex items-center justify-center rounded overflow-hidden">
         <img src={product.image} alt={product.name} className="w-32 h-32 object-contain" />
 
-      
+        <button
+          onClick={() => addToCart(product)}
+          className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 text-sm opacity-0 group-hover:opacity-100 transition"
+        >
+          Add To Cart
+        </button>
       </div>
 
       <div className="mt-4">
